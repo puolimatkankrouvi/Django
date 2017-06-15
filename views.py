@@ -32,6 +32,7 @@ def index(request):
                 query = """INSERT INTO review VALUE(%s,%s,%s)"""
                 cursor.execute(query,(review.band_name,review.album_title,review.review_text))
                 db.commit()
+                
             except (mysli.Error, mysli.Warning) as e:
                 print e
 

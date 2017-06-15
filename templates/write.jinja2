@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+    <div class="content">
+      <form action="/reviews/" method="post" name="write_review" id="write_review">
+          <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+          <label for="band_name">Band</label>
+          <input type="text" name="band_name" id="band_name">
+          <br>
+
+          <label for="album">Album</label>
+          <input type="text" name="album" id="album">
+          <br>
+
+          <label for="review_text">Text</label>
+          <textarea form="write_review" name="review_text" id="review_text" rows="10" cols="70"></textarea>
+          <br>
+          <input type="submit" value="Submit" class="submit_review">
+      </form>
+        <a href="/reviews/">Cancel</a>
+    </div>
+</body>
+
+
+
+</html>

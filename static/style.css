@@ -1,0 +1,38 @@
+
+
+
+div .content{
+    margin: 0;
+}
+
+div .review{
+    margin-bottom: 20px;
+}
+
+h1,h2,p{
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p{
+    font-size: 10px;
+}
+h1{
+    font-size: 16px;
+}
+h2{
+    font-size: 14px;
+}
+input .submit_review{
+    display: block;
+    float: right;
+}
+label{
+    display: block;
+}
+
+.button{
+	display: inline;
+	background-color: silver;
+	margin: 20px 0 0 20;
+}
+
