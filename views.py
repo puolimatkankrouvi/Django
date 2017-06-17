@@ -32,7 +32,7 @@ def index(request):
                 query = """INSERT INTO review VALUE(%s,%s,%s)"""
                 cursor.execute(query,(review.band_name,review.album_title,review.review_text))
                 db.commit()
-                
+
             except (mysli.Error, mysli.Warning) as e:
                 print e
 
@@ -43,11 +43,11 @@ def index(request):
     # to a list of dictionaries with keys band_name,album_title & reviews_text
     reviews = map( lambda(x,y,z):{'band_name' : x , 'album_title' : y, 'review_text' : z},db.store_result().fetch_row(MAX_ROWS) );
 
-    template = loader.get_template('index.jinja2')
+    template = loader.get_template('index.html')
     context = {'reviews': reviews}
     return HttpResponse(template.render(context,request))
 
 def write(request):
-    template = loader.get_template('write.jinja2')
+    template = loader.get_template('write.html')
     csrf_token = csrf.get_token(request)
-    return render(request, 'write.jinja2')
+    return render(request, 'write.html')
