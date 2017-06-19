@@ -18,7 +18,8 @@ from django.contrib import admin
 from reviews import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
-    url(r'^write', views.write)
+    url(r'^admin/', admin.site.urls,name='admin'),
+    url(r'^$', views.index, name='index'),
+    url(r'^write', views.write, name='write'),
+    url(r'^list_bands', views.bands, name='list_bands')
 ]

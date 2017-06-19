@@ -39,15 +39,32 @@ def index(request):
 
 
     db.query("""SELECT * FROM review""")
+    result = db.store_result().fetch_row(MAX_ROWS)
+
     #Transforming results from tuple of tuples
     # to a list of dictionaries with keys band_name,album_title & reviews_text
-    reviews = map( lambda(x,y,z):{'band_name' : x , 'album_title' : y, 'review_text' : z},db.store_result().fetch_row(MAX_ROWS) );
+    reviews = map( lambda(x,y,z):{'band_name' : x , 'album_title' : y, 'review_text' : z}, result)
 
     template = loader.get_template('index.html')
     context = {'reviews': reviews}
     return HttpResponse(template.render(context,request))
 
 def write(request):
-    template = loader.get_template('write.html')
-    csrf_token = csrf.get_token(request)
     return render(request, 'write.html')
+
+def bands(request):
+    db = mysli.connect(db_settings['host'], db_settings['user'], db_settings['password'], db_settings['name'])
+    cursor = db.cursor()
+    query = """SELECT DISTINCT band_name FROM review """
+    cursor.execute(query)
+    #Tuples of tuples of strings
+    bands = cursor.fetchall()
+    #From tuples of tuples into a list
+    bands = [x for (x,) in bands]
+
+
+    template = loader.get_template('bands.html')
+    context = {'band_names': bands}
+
+
+    return HttpResponse(template.render(context,request))

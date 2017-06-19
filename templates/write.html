@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Reviews</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-
-<body>
-
-    <div class="content">
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
       <form action="/reviews/" method="post" name="write_review" id="write_review">
           <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
@@ -26,9 +18,5 @@
           <input type="submit" value="Submit" class="submit_review">
       </form>
         <a href="/reviews/">Cancel</a>
-    </div>
-</body>
-
-
-
-</html>
+</div>
+{% endblock %}

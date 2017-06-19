@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+  {% block nav %}
+        <ul id="nav">
+            <li>{% block nav-list %}<a href="{% url 'index' %}">Reviews list</a>{% endblock %}</li>
+            <li>{% block nav-write %}<a href="{% url 'write' %}">Write review</a>{% endblock %}</li>
+            <li>{% block nav-bands %}<a href="{% url 'list_bands' %}">List bands</a>{% endblock %}</li>
+        </ul>
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
+
+</html>
