@@ -55,7 +55,7 @@ def write(request):
 def bands(request):
     db = mysli.connect(db_settings['host'], db_settings['user'], db_settings['password'], db_settings['name'])
     cursor = db.cursor()
-    query = """SELECT DISTINCT band_name FROM review """
+    query = """SELECT DISTINCT band_name FROM review ORDER BY band_name"""
     cursor.execute(query)
     #Tuples of tuples of strings
     bands = cursor.fetchall()

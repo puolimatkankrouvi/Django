@@ -1,11 +1,13 @@
 
 
 
-div .content{
+div.content{
     margin: 0;
+    margin-top: 50px;
+    position: absolute;
 }
 
-div .review{
+div.review{
     margin-bottom: 20px;
 }
 
@@ -22,28 +24,72 @@ h1{
 h2{
     font-size: 14px;
 }
-input .submit_review{
-    display: block;
+input.submit_review{
+    position: relative;
     float: right;
-}
-label{
-    display: block;
+    cursor: pointer;
+    margin: 5px 0 0 0;
 }
 
-.button{
-	display: inline;
-	background-color: silver;
-	margin: 20px 0 0 20;
+input.submit_review :hover{
+    cursor: hand;
+}
+
+label{
+    display: block;
 }
 
 ul{
     list-style-type: none;
 }
 ul li{
+    display: inline-block;
+    margin: 5px 10px 0 0;
+
+    background-color: blue;
+
+}
+
+a.link-button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
     display: inline;
+    color: initial;
+
+    margin: 5px 0 0 0;
+
+    position: absolute;
+    float: left;
 }
 
 ul li a{
+    display: inline-block;
     text-decoration: none;
+    color: white;
+
+    padding: 5px 10px 5px 10px;
+    background-color: blue;
+
+    border-color: silver;
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
 }
+
+@media screen and (max-width: 599px) {
+    ul li{
+        display: table;
+    }
+    div.content{
+        margin-top: 30px;
+    }
+}
+
+ul li :hover{
+    text-decoration: underline;
+}
+
+
 
